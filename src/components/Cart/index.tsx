@@ -25,7 +25,7 @@ const Cart = () => {
   }, []);
 
   const fee = 1;
-  const itemCount = 0;
+  const itemCount = 1;
   return (
     <Sheet>
       <SheetTrigger className="group -m-2 flex items-center p-2">
