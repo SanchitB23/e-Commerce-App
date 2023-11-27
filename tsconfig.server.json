@@ -4,7 +4,15 @@
     "module": "CommonJS",
     "outDir": "dist",
     "noEmit": false,
-    "jsx": "react"
+    "jsx": "react",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   },
-  "include": ["src/server.ts", "src/payload.config.ts"]
+  "include": [
+    "src/server.ts",
+    "src/payload.config.ts"
+  ]
 }

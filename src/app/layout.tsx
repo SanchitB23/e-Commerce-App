@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import React from "react";
 import Navbar from "@/components/Nav";
+import TrpcProvider from "@/Providers/TrpcProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,8 +24,10 @@ export default function RootLayout({
         className={cn("relative h-full font-sans antialiased", inter.className)}
       >
         <main className={"relative flex flex-col min-h-screen"}>
-          <Navbar />
-          <div className={"flex-grow flex-1"}>{children}</div>
+          <TrpcProvider>
+            <Navbar />
+            <div className={"flex-grow flex-1"}>{children}</div>
+          </TrpcProvider>
         </main>
       </body>
     </html>
