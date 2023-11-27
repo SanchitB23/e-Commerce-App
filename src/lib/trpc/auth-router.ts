@@ -18,9 +18,14 @@ export const authRouter = router({
         },
       });
       if (users.length !== 0) throw new TRPCError({ code: "CONFLICT" });
-      // await payload.create({
-      //   data: {},
-      //   collection: "users",
-      // });
+      await payload.create({
+        data: {
+          email,
+          password,
+          role: "user",
+        },
+        collection: "users",
+      });
+      return { success: true, sentToEmail: email };
     }),
 });

@@ -1,7 +1,8 @@
 import { router } from "./trpc";
+import { authRouter } from "@/lib/trpc/auth-router";
 
 export const appRouter = router({
-  // auth: authRouter,
+  auth: authRouter,
   // payment: paymentRouter,
   //
   // getInfiniteProducts: publicProcedure

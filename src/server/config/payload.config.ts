@@ -7,21 +7,20 @@ import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import path from "path";
 import dotenv from "dotenv";
+import { Users } from "../db/Users";
 
 dotenv.config({
-  path: path.resolve(__dirname, "../.env"),
+  path: path.resolve(__dirname, "../../../.env"),
 });
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "",
-  collections: [
-    /* Users, Products, Media, ProductFiles, Orders */
-  ],
+  collections: [Users],
   routes: {
     admin: "/sell",
   },
   admin: {
-    // user: "users",
+    user: "users",
     bundler: webpackBundler(),
     meta: {
       titleSuffix: "- DigitalHippo",
@@ -37,6 +36,6 @@ export default buildConfig({
     url: process.env.MONGODB_URL!,
   }),
   typescript: {
-    outputFile: path.resolve(__dirname, "src/server/types/payload-types.ts"),
+    outputFile: path.resolve(__dirname, "../../types/payload-types.ts"),
   },
 });
