@@ -15,6 +15,10 @@ import {
 } from "@/lib/validators/account-credentials-validator";
 import { cn } from "@/lib/utils";
 import { trpc } from "@/lib/trpc/client";
+import { toast } from "sonner";
+import { ZodError } from "zod";
+import { useRouter } from "next/navigation";
+import { ReloadIcon } from "@radix-ui/react-icons";
 
 function SignUp() {
   const {
@@ -25,26 +29,26 @@ function SignUp() {
     resolver: zodResolver(AuthCredentialsValidator),
   });
 
+  const router = useRouter();
+
   const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({
-    // onError: (err) => {
-    //   if (err.data?.code === "CONFLICT") {
-    //     toast.error("This email is already in use. Sign in instead?");
-    //
-    //     return;
-    //   }
-    //
-    //   if (err instanceof ZodError) {
-    //     toast.error(err.issues[0].message);
-    //
-    //     return;
-    //   }
-    //
-    //   toast.error("Something went wrong. Please try again.");
-    // },
-    // onSuccess: ({ sentToEmail }) => {
-    //   toast.success(`Verification email sent to ${sentToEmail}.`);
-    //   router.push("/verify-email?to=" + sentToEmail);
-    // },
+    onError: (err) => {
+      if (err.data?.code === "CONFLICT") {
+        toast.error("This email is already in use. Sign in instead?");
+        return;
+      }
+
+      if (err instanceof ZodError) {
+        toast.error(err.issues[0].message);
+        return;
+      }
+
+      toast.error("Something went wrong. Please try again.");
+    },
+    onSuccess: ({ sentToEmail }) => {
+      toast.success(`Verification email sent to ${sentToEmail}.`);
+      router.push("/verify-email?to=" + sentToEmail);
+    },
   });
 
   const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
@@ -110,7 +114,12 @@ function SignUp() {
                   )}
                 </div>
 
-                <Button>Sign up</Button>
+                <Button disabled={isLoading}>
+                  {isLoading && (
+                    <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+                  )}
+                  Sign up
+                </Button>
               </div>
             </form>
           </div>
