@@ -42,3 +42,9 @@ export const PRODUCT_CATEGORIES = [
     ],
   },
 ];
+
+export const COMPANY_NAME = {
+  slug: "digital-hippo",
+  titleCase: "DigitalHippo",
+  spaced: "Digital Hippo",
+};

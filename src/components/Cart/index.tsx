@@ -16,6 +16,7 @@ import Image from "next/image";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useEffect, useState } from "react";
 import { formatPrice } from "@/lib/utils";
+import { COMPANY_NAME } from "@/constants";
 
 const Cart = () => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
@@ -88,9 +89,9 @@ const Cart = () => {
               className="relative mb-4 h-60 w-60 text-muted-foreground"
             >
               <Image
-                src="/hippo-empty-cart.png"
+                src={`/${COMPANY_NAME.slug}-empty-cart.png`}
                 fill
-                alt="empty shopping cart hippo"
+                alt={`empty shopping cart ${COMPANY_NAME.titleCase}}`}
               />
             </div>
             <div className="text-xl font-semibold">Your cart is empty</div>

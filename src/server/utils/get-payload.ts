@@ -3,6 +3,7 @@ import path from "path";
 import type { InitOptions } from "payload/config";
 import payload, { Payload } from "payload";
 import nodemailer from "nodemailer";
+import { COMPANY_NAME } from "@/constants";
 
 dotenv.config({
   path: path.resolve(__dirname, "../../../.env"),
@@ -47,7 +48,7 @@ export const getPayloadClient = async ({
       email: {
         transport: transporter,
         fromAddress: "onboarding@resend.dev",
-        fromName: "DigitalHippo",
+        fromName: COMPANY_NAME.titleCase,
       },
       secret: process.env.PAYLOAD_SECRET,
       local: !initOptions?.express,

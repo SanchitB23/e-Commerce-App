@@ -8,6 +8,7 @@ import { slateEditor } from "@payloadcms/richtext-slate";
 import path from "path";
 import dotenv from "dotenv";
 import { Users } from "../db/Users";
+import { COMPANY_NAME } from "@/constants";
 
 dotenv.config({
   path: path.resolve(__dirname, "../../../.env"),
@@ -23,7 +24,7 @@ export default buildConfig({
     user: "users",
     bundler: webpackBundler(),
     meta: {
-      titleSuffix: "- DigitalHippo",
+      titleSuffix: `- ${COMPANY_NAME.titleCase}`,
       favicon: "/favicon.ico",
       ogImage: "/thumbnail.jpg",
     },

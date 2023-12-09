@@ -13,6 +13,7 @@ import {
 } from "@react-email/components";
 
 import * as React from "react";
+import { COMPANY_NAME } from "@/constants";
 
 interface EmailTemplateProps {
   actionLabel: string;
@@ -32,16 +33,16 @@ export const EmailTemplate = ({
       <Body style={main}>
         <Container style={container}>
           <Img
-            src={`${process.env.NEXT_PUBLIC_SERVER_URL}/hippo-newsletter-sign-up.png`}
+            src={`${process.env.NEXT_PUBLIC_SERVER_URL}/${COMPANY_NAME.slug}}-newsletter-sign-up.png`}
             width="150"
             height="150"
-            alt="DigitalHippo"
+            alt={COMPANY_NAME.titleCase}
             style={logo}
           />
           <Text style={paragraph}>Hi there,</Text>
           <Text style={paragraph}>
-            Welcome to DigitalHippo, the marketplace for high quality digital
-            goods. Use the button below to {actionLabel}.
+            Welcome to {COMPANY_NAME.spaced}, the marketplace for high quality
+            digital goods. Use the button below to {actionLabel}.
           </Text>
           <Section style={btnContainer}>
             <Button style={button} href={href}>
@@ -51,7 +52,7 @@ export const EmailTemplate = ({
           <Text style={paragraph}>
             Best,
             <br />
-            The DigitalHippo team
+            The {COMPANY_NAME.titleCase} team
           </Text>
           <Hr style={hr} />
           <Text style={footer}>
