@@ -42,7 +42,7 @@ export const Media: CollectionConfig = {
     hidden: ({ user }) => user.role !== "admin",
   },
   upload: {
-    staticURL: "/media",
+    staticURL: "/data/media",
     staticDir: "media",
     imageSizes: [
       {

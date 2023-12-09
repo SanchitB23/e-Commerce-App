@@ -1,19 +1,16 @@
-import { PRODUCT_CATEGORIES } from "@/constants";
-// @ts-ignore
 import { useCart } from "@/hooks/use-cart";
 import { formatPrice } from "@/lib/utils";
 import { Product } from "@/types/payload-types";
 import { ImageIcon, X } from "lucide-react";
 import Image from "next/image";
+import { getProductLabel } from "@/utils";
 
 const CartItem = ({ product }: { product: Product }) => {
   const { image } = product.images[0];
 
   const { removeItem } = useCart();
 
-  const label = PRODUCT_CATEGORIES.find(
-    ({ value }) => value === product.category,
-  )?.label;
+  const label = getProductLabel(product.category);
 
   return (
     <div className="space-y-3 py-2">

@@ -72,7 +72,7 @@ export const ProductFiles: CollectionConfig = {
     delete: ({ req }) => req.user.role === "admin",
   },
   upload: {
-    staticURL: "/product_files",
+    staticURL: "/data/product_files",
     staticDir: "product_files",
     mimeTypes: ["image/*", "font/*", "application/postscript"],
   },

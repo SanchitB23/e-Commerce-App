@@ -4,9 +4,9 @@ import { Product } from "@/types/payload-types";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { cn, formatPrice } from "@/lib/utils";
-import { PRODUCT_CATEGORIES } from "@/constants";
 import { Skeleton } from "@/components/ui/skeleton";
 import ImageSlider from "@/components/ImageSlider";
+import { getProductLabel, getValidUrls } from "@/utils";
 
 interface ProductListingProps {
   product: Product | null;
@@ -26,13 +26,8 @@ const ProductListing = ({ product, index }: ProductListingProps) => {
 
   if (!product || !isVisible) return <ProductPlaceholder />;
 
-  const label = PRODUCT_CATEGORIES.find(
-    ({ value }) => value === product.category,
-  )?.label;
-
-  const validUrls = product.images
-    .map(({ image }) => (typeof image === "string" ? image : image.url))
-    .filter(Boolean) as string[];
+  const label = getProductLabel(product.category);
+  const validUrls = getValidUrls(product.images);
 
   if (isVisible && product) {
     return (

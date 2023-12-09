@@ -1,7 +1,7 @@
 import { publicProcedure, router } from "./trpc";
-import { authRouter } from "../../lib/trpc/auth-router";
+import { authRouter } from "./auth-router";
 import { z } from "zod";
-import { QueryValidator } from "../../lib/validators/query-validitor";
+import { QueryValidator } from "../validators/query-validitor";
 import { getPayloadClient } from "../../server/utils/get-payload";
 
 export const appRouter = router({
