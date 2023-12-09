@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import Navbar from "@/components/Nav";
 import TrpcProvider from "@/Providers/TrpcProvider";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
             <div className={"flex-grow flex-1"}>{children}</div>
           </TrpcProvider>
         </main>
+        <Toaster position={"top-center"} richColors={true} />
       </body>
     </html>
   );
