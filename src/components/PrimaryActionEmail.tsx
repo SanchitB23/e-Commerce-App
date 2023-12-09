@@ -13,7 +13,7 @@ import {
 } from "@react-email/components";
 
 import * as React from "react";
-import { COMPANY_NAME } from "../../constants";
+import { COMPANY_NAME } from "../constants";
 
 interface EmailTemplateProps {
   actionLabel: string;

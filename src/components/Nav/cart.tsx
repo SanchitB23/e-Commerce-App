@@ -17,7 +17,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useEffect, useState } from "react";
 import { formatPrice } from "@/lib/utils";
 import { useCart } from "@/hooks/use-cart";
-import CartItem from "@/components/Cart/CartItems";
+import CartItem from "@/app/cart/CartItems";
 import { COMPANY_NAME } from "@/constants";
 
 const Cart = () => {

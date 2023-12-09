@@ -5,7 +5,7 @@ import { Icons } from "../Icons";
 import NavItems from "@/components/Nav/NavItems";
 import MobileNav from "@/components/Nav/MobileNav";
 import { buttonVariants } from "@/components/ui/button";
-import Cart from "@/components/Cart";
+import Cart from "./cart";
 import { getServerSideUser } from "@/lib/payload-utils";
 import { cookies } from "next/headers";
 import UserAccountNav from "./UserAccNav";

@@ -1,4 +1,4 @@
-import AddToCartButton from "@/components/Cart/AddToCartBtn";
+import AddToCartButton from "./AddToCartBtn";
 import ImageSlider from "@/components/ImageSlider";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import ProductReel from "@/components/Product/ProductReel";
